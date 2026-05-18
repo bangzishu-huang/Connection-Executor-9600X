@@ -31,3 +31,4 @@ The basic structure of the robodog can be all 3D printed.
 |1|8 ohms Circular Speaker|
 |1|Audio Amplifier Board|
 |A bunch|Jumper Wires of all kinds|
+|1|Light Switch (this was for the special ingredient!)|
