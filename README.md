@@ -11,8 +11,20 @@ By sticking a ultrasonic sensor onto our robodog named "Connection Executor 9600
 # Demo Video
 This is a demo video of our robodog funcitoning!
 
+https://github.com/user-attachments/assets/dd3b7490-a5ae-4669-b479-f12dc87181c4
+
 # Pictures
 Here is a place for some photos of Connection Executor 9600X. :)
+
+<img width="3024" height="4032" alt="IMG_5956" src="https://github.com/user-attachments/assets/1935d6c6-c890-4bd8-95fc-81c3e172274b" />
+<img width="3024" height="4032" alt="IMG_5959" src="https://github.com/user-attachments/assets/0dd39e90-e4e8-4a9f-8d27-40cb72e3dd6d" />
+<img width="3024" height="4032" alt="IMG_5958" src="https://github.com/user-attachments/assets/1e44a72a-c8c3-40a0-a5af-97d54b226201" />
+<img width="3024" height="4032" alt="IMG_5957" src="https://github.com/user-attachments/assets/c18bd597-b24c-46aa-925d-a3a68a1ec81f" />
+
+# Wiring
+This is a quick overview of how the wiring for the robodog worked.
+
+<img width="3024" height="4032" alt="IMG_5960" src="https://github.com/user-attachments/assets/c0f3caf3-9188-422e-8b27-ae25f5b9d563" />
 
 # Firmware
 The robodog uses Arduino IDE for firmware. We have used 2 different sketches: one allowing the robodog to be fully autonomous, while another making it to follow commands inputed through the serial monitor. 
