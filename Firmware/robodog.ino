@@ -10,9 +10,6 @@ BluetoothSerial SerialBT;
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
-// ----------------------------------------------------
-// Servo configuration
-// ----------------------------------------------------
 #define SERVOMIN     100
 #define SERVOMAX     500
 #define CENTER       325
@@ -22,18 +19,12 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define MAX_STEP     8
 #define MOVE_STEPS   40
 
-// ----------------------------------------------------
-// Ultrasonic pins
-// ----------------------------------------------------
 #define TRIG_PIN 12
 #define ECHO_PIN 13
 
-// Neck servo channel
 #define NECK_SERVO 15
 
-// ----------------------------------------------------
-// Gait parameters
-// ----------------------------------------------------
+
 const float FREQUENCY = 0.006f;
 const float AMPLITUDE = 70.0f;
 
@@ -50,9 +41,7 @@ unsigned long currentMillis = 0;
 unsigned long oldMillis     = 0;
 unsigned long innerTime     = 0;
 
-// ----------------------------------------------------
-// Global variables
-// ----------------------------------------------------
+
 float currentPos[NUM_SERVOS];
 float targetPos[NUM_SERVOS];
 int   lastPulse[NUM_SERVOS];
@@ -63,9 +52,7 @@ long distFwd   = 0;
 long distLeft  = 0;
 long distRight = 0;
 
-// ----------------------------------------------------
-// STATE MACHINE
-// ----------------------------------------------------
+
 enum DogState {
   STATE_FORWARD,
   STATE_LEFT,
@@ -75,9 +62,7 @@ enum DogState {
 
 DogState state = STATE_FORWARD;
 
-// ----------------------------------------------------
-// Read from Serial or BT
-// ----------------------------------------------------
+
 String readCommand() {
   String input = "";
   if (Serial.available() > 0)
@@ -92,9 +77,8 @@ String readCommand() {
   return input;
 }
 
-// ----------------------------------------------------
-// Ultrasonic distance sensor
-// ----------------------------------------------------
+
+
 long readDistance() {
   digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
@@ -113,9 +97,8 @@ long readDistance() {
   return distance;
 }
 
-// ----------------------------------------------------
-// Smooth neck movement
-// ----------------------------------------------------
+
+
 void moveNeckSlow(int from, int to, int steps = 10, int delayMs = 50) {
   float step = (to - from) / (float)steps;
   for (int i = 0; i <= steps; i++) {
@@ -124,17 +107,15 @@ void moveNeckSlow(int from, int to, int steps = 10, int delayMs = 50) {
   }
 }
 
-// ----------------------------------------------------
-// Return neck to center
-// ----------------------------------------------------
+
+
 void returnNeckToCenter() {
   pwm.setPWM(NECK_SERVO, 0, CENTER);
   delay(200);
 }
 
-// ----------------------------------------------------
-// GAIT ENGINE
-// ----------------------------------------------------
+
+
 void runWalkSequence(const float ampScale[NUM_SERVOS]) {
   oldMillis     = currentMillis;
   currentMillis = millis();
@@ -188,9 +169,8 @@ void resetStance() {
   moveUntilReachedAll();
 }
 
-// ----------------------------------------------------
-// Setup
-// ----------------------------------------------------
+
+
 void setup() {
   Serial.begin(115200);
 
@@ -225,9 +205,8 @@ void setup() {
 #endif
 }
 
-// ----------------------------------------------------
-// MAIN LOOP
-// ----------------------------------------------------
+
+
 
 void loop() {
   if (digitalRead(SWITCH_PIN) == HIGH) {
@@ -313,9 +292,6 @@ void loop() {
       }
       break;
 
-    // ====================================================================
-    //                           LEFT STATE
-    // ====================================================================
     case STATE_LEFT:
       runWalkLeft();
 
@@ -334,9 +310,6 @@ void loop() {
       }
       break;
 
-    // ====================================================================
-    //                           BACKWARD STATE
-    // ====================================================================
     case STATE_BACKWARD:
       runWalkBackward();
 
