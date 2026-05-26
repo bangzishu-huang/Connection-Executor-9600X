@@ -44,3 +44,11 @@ The basic structure of the robodog can be all 3D printed.
 |1|Audio Amplifier Board|
 |A bunch|Jumper Wires of all kinds|
 |1|Light Switch (this was for the special ingredient!)|
+
+## The Team
+
+**Benny (https://github.com/bangzishu-huang)** - Hardware and Wiring
+
+**Chark (https://github.com/chendongaoo)** - Sensors
+
+**Richard (https://github.com/RichardM1337)** - Firmware 
